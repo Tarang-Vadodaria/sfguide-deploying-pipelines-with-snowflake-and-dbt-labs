@@ -3,7 +3,8 @@
 
 ## About
 This repository is a fork created from : https://github.com/Snowflake-Labs/sfguide-deploying-pipelines-with-snowflake-and-dbt-labs/tree/main
-and as per the guide : https://quickstarts.snowflake.com/guide/data_engineering_deploying_pipelines_with_snowflake_and_dbt_labs/index.html#8
+
+sniowflake guide : https://quickstarts.snowflake.com/guide/data_engineering_deploying_pipelines_with_snowflake_and_dbt_labs/index.html#8
 
 ## Dependencies :
 `pip install dbt-snowflake==1.8.0`
