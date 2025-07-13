@@ -3,7 +3,8 @@
 # name or the intended use of these models
 name: 'dbt_project'
 version: '1.0.0'
-
+# Added config-version to specify the version of the dbt project configuration
+config-version: 2
 # This setting configures which "profile" dbt uses for this project.
 profile: 'dbt_project'
 
@@ -42,7 +43,7 @@ models:
       +schema: 01_staging
       +docs:
         node_color: "#ADD8E6"  # Light blue
-      +materialized: view
+      +materialized: table
       # +materialized: table
       
             
@@ -51,8 +52,8 @@ models:
       +schema: 02_intermediate
       +docs:
         node_color: "#8B4513"  # Brown
-      +materialized: view        
-      # +materialized: dynamic_table
+      #+materialized: table        
+      +materialized: dynamic_table
       # +target_lag: downstream
       # +snowflake_warehouse: VWH_DBT_HOL
       # +refresh_mode: incremental
@@ -62,9 +63,30 @@ models:
       +schema: 03_marts
       +docs:
         node_color: "#8B0000"  # Dark red
-      +materialized: view
-      # +materialized: dynamic_table
+      #+materialized: table
+      +materialized: dynamic_table
       # +target_lag: '1 minute'
       # +snowflake_warehouse: VWH_DBT_HOL
       # +refresh_mode: incremental
-
+    outputs:
+      dev:
+        account: <account identifier>
+        database: dbt_hol_2025_dev
+        password: <user password>
+        role: dbt_hol_role_dev
+        schema: public
+        threads: 100
+        type: snowflake
+        user: dbt_hol_user
+        warehouse: vwh_dbt_hol_dev
+      prod:
+        account: <account identifier>
+        database: dbt_hol_2025_prod
+        password: <user password>
+        role: dbt_hol_role_prod
+        schema: public
+        threads: 100
+        type: snowflake
+        user: dbt_hol_user
+        warehouse: vwh_dbt_hol_prod
+    target: dev

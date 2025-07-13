@@ -1,0 +1,23 @@
+dbt_project:
+  outputs:
+    dev:
+      account: bkcpfsd-vhb00235
+      database: dbt_hol_2025_dev
+      password: <user-password>
+      role: dbt_hol_role_dev
+      schema: public
+      threads: 100
+      type: snowflake
+      user: dbt_hol_user
+      warehouse: vwh_dbt_hol_dev
+    prod:
+      account: bkcpfsd-vhb00235
+      database: dbt_hol_2025_prod
+      password: <user-password>
+      role: dbt_hol_role_prod
+      schema: public
+      threads: 100
+      type: snowflake
+      user: dbt_hol_user
+      warehouse: vwh_dbt_hol_prod
+  target: dev

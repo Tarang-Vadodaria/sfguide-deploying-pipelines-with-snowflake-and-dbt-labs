@@ -1,3 +1,11 @@
+{{
+	config(
+		materialized='dynamic_table',
+		target_lag='1 minute',
+		snowflake_warehouse='vwh_dbt_hol_dev',
+		refresh_mode='full'
+		)
+}}
 
 
 with extracted_entities as (
